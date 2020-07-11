@@ -1,0 +1,25 @@
+.row {
+  background-color: white;
+    border-radius: 25px;
+    box-shadow: 1px 5px 20px 1px #888888;
+    padding: 50px 0px;
+    width: 50%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 10%;
+}
+
+a {
+  color: rgba(36, 56, 230, 0.74);
+}
+a:hover {
+  color: rgb(40, 250, 57);
+  background-color: rgba(72, 209, 233, 0.103);
+}
+
+.createA {
+  padding-top: 1.5em;
+  font-weight: 300px;
+  font-size: 20px;
+}

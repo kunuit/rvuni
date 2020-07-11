@@ -1,0 +1,107 @@
+.fa-brain{
+  color: yellow;
+}
+
+.fa-heart{
+  color: red;
+}
+
+.footer .container-fluid {
+  overflow: hidden;
+  color: rgba(255,255,255,0.6);
+  background-color: rgba(0,0,0,0.2);
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  font-family: Quicksand,sans-serif
+}
+
+.act-review {
+  font-size: 1.5 rem;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
+  opacity: 0.85;
+}
+
+
+
+.modal-dialog {
+    max-width: 800px;
+    margin: 1.75rem auto;
+}
+
+.modal-content {
+  border-radius: 15px;
+}
+
+.modal-header {
+  background-color: #F5F5F5;
+  border-radius: 15px 15px 0px 0px;
+}
+
+.modal-header h5 {
+  color: #363636;
+  flex-grow: 1;
+  flex-shrink: 0;
+  font-size: 1.85rem;
+  line-height: 1;
+
+}
+.modal-footer{
+  background-color: #F5F5F5;
+  color: #4A4A4A;
+  border-radius: 0px 0px 15px 15px ;
+}
+.modal-body .form-control {
+  font-size: 1.5rem;
+  box-shadow: inset 0 1px 2px rgba(10,10,10,.1);
+  max-width: 100%;
+  width: 100%;
+}
+
+.modal-body .form-group label {
+  color: #2a80f1fb;
+  font-size: 1.5rem !important;
+  font-weight: 800 !important;
+
+}
+
+.modal-body input {
+  color: #251e1ef6  !important;
+  font-size: 1.2rem !important;
+  font-weight: 800 !important;
+  height: 50px;
+  padding-top: 30px;
+}
+
+.modal-body input::placeholder {
+  color: #c3c3c3  !important;
+  font-size: 1.2rem !important;
+  font-weight: 800 !important;
+}
+
+textarea::placeholder {
+  color: #c3c3c3  !important;
+}
+
+.modal-footer {
+  max-height: 5em;
+}
+
+.modal-footer .btn-light{
+  border: 1px solid #d3c5c5c4;
+  background-color: #ffffff !important;
+}
+
+/* .modal-footer .btn-light:hover{
+  border: 1px solid #c2c2c2;
+  background-color: #f3f3f3 !important;
+} */
+
+.custom-select {
+  display: block;
+  width: auto;
+}

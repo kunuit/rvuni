@@ -1,0 +1,194 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+    background: #f5f5f5;
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+div#primary{
+  padding-left: 10%;
+  padding-right: 15px;
+  width: 75%;
+}
+h3#reply-title {
+    font-size: 42px;
+    margin-bottom: 30px;
+}
+h3{
+    clear: both;
+    font-family: 'Playfair Display', serif;
+    color: #3b3b3b;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+#commentform {
+    background-color: #fff;
+    padding: 40px 50px;
+}
+form {
+    display: block;
+    margin-top: 0em;
+    margin-block-end: 1em;
+}
+p {
+    margin-bottom: 1.5em;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.comment-notes {
+    color: #797979;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+.comment-form-comment {
+    border-bottom: 1px solid #e5e5e5;
+}
+textarea {
+    color: #404040;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+p.comment-form-comment textarea {
+    border: none;
+    height: 141px !important;
+}
+.comment-form-author, .comment-form-email {
+    width: 50%;
+    float: left;
+}
+.comment-respond input {
+    width: 100%;
+    border: none;
+    text-transform: capitalize;
+    padding-bottom: 10px;
+}
+input[type="text"], input[type="url"], input[type="email"], textarea {
+    color: #666;
+    border-radius: 3px;
+    padding: 3px;
+}
+textarea {
+    overflow: auto;
+    resize: vertical;
+    width: 100%
+}
+input, textarea {
+    font-family: sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    font: inherit;
+    margin: 0;
+}
+input {
+  webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-appearance: textfield;
+    background-color: rgb(255, 255, 255);
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+}
+label {
+    cursor: default;
+}
+p.comment-form-url input{
+    width: 100%;
+}
+p.comment-form-author input, p.comment-form-email input, p.comment-form-url input, p.comment-form-email textarea {
+    border-bottom: 1px solid #e5e5e5;
+}
+.comment-form-cookies-consent {
+    clear: both;
+    margin-top: 15px;
+    display: inline-block;
+    width: 100%;
+}
+#respond .comment-form-cookies-consent input[type="checkbox"], .comment-form-cookies-consent input[type="checkbox"] {
+    width: auto;
+    float: left;
+    height: auto;
+    min-height: auto;
+    margin-right: 10px;
+}
+input[type="checkbox"]{
+    box-sizing: border-box;
+    padding: 0;
+    background-color: initial;
+    cursor: default;
+    -webkit-appearance: checkbox;
+}
+#respond .comment-form-cookies-consent label, .comment-form-cookies-consent label {
+    display: table;
+    margin: 0;
+    line-height: 1;
+}
+p.form-submit input[type="submit"] {
+    width: auto;
+    box-shadow: none;
+    background-color: #e84a4c;
+    border: none;
+    text-transform: capitalize;
+    display: inline-block;
+    color: #fff;
+    font-size: 15px;
+    padding: 18px 50px;
+    text-indent: 0;
+    font-family: 'Rubik';
+    text-shadow: none;
+    border-radius: 0;
+}
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+input[type="submit" i] {
+    user-select: none;
+    white-space: pre;
+    align-items: flex-start;
+    text-align: center;
+}
+footer {
+  color: #4f4f4f !important;
+}
+
+.align-items-center a{
+  color: #FFFFFF !important;
+}
+
+.align-items-center a:hover{
+  color: rgb(93, 228, 154) !important;
+}
+
+footer.page-footer .footer-copyright {
+  overflow: hidden;
+  color: rgba(255,255,255,0.6);
+  background-color: rgba(0,0,0,0.2);
+}
+
+footer a{
+  color: #4f4f4f !important;
+  text-decoration: none !important;
+}
+footer a:hover{
+  color: #4265d66e !important;
+  text-decoration: none !important;
+}

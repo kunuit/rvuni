@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="./style.css/tempsnip.png">
+  <link rel="icon" type="image/png" href="./style.css/tempsnip.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/4f433ce5a6.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./style.css/submitReview.css">
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+</head>
+
+<body>
+  <!-- Button trigger modal review -->
+  <button type="button" class="btn btn-success btn-lg act-review" style="border-radius: 30px !important" data-toggle="modal" data-target="#actReview">
+    <i class="fas fa-pencil-alt"></i>
+    <span>
+      viết review
+    </span>
+  </button>
+
+  <!-- Modal -->
+  <form action="http://localhost/RV/public/submitReview/submitReview.php" method="post" >
+    <div class="modal fade" id="actReview" tabindex="-1" role="dialog" aria-labelledby="actReviewTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document" style="max-width: 800px!important;">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="actReviewTitle">Viết Review trường đại học <span> Công Nghệ Thông Tin</span></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="">Tên bạn</label>
+              <input type="text"
+                class="form-control" name="name" aria-describedby="helpId" placeholder=" Muốn xưng tên thật thì xưng hong thì thui">
+            </div>
+            <div class="form-group"> 
+              <label for="">Chức vụ </label>
+              <input type="text" 
+                class="form-control" name="position" aria-describedby="helpId" placeholder=" Tân sinh viên / cựu sinh viên hay a/c rớt môn hằng năm">
+            </div>
+            <div class="form-group"> 
+              <label for="">Review trường <span style="color: #ff4a6f;">(Bắt buộc)</span></label>
+              <textarea value = "" class="form-control" name="mainReview" rows="4" placeholder="Cái gì hay thì chia sẻ cho mọi người mở mang, góp ý. Còn bức xúc hay gì nữa thì viết dài dài vô (Tối thiểu 20 ký tự). Chia sẻ nhìu nhìu vô nha !!!" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="">Gửi sao cho trường</label>
+              <select class="custom-select form-control" name="giveStar">
+                <option value="1" >1 sao - Trường cùi bắp, né né không lại hối hận</option>
+                <option value="2">2 sao - Haizz, ra trường sớm thôi</option>
+                <option value="3" selected>3 sao - Tạm, option không tệ</option>
+                <option value="4">4 sao - Ngon, vừa sức để theo đuổi</option>
+                <option value="5">5 sao - Perfect, đáng học tập và phát triển bản thân</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <div
+                class="g-recaptcha"
+                data-sitekey="6Lfwp-sUAAAAAEK-vGB1KD4__Xsk5dJjYJ40ekCJ"
+              ></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success btn-lg">Submit</button>
+            <button type="button" class="btn btn-light btn-lg" data-dismiss="modal">Hủy bỏ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <!-- reply modal -->
+  <button type="button" class="btn btn-success btn-lg act-review" style="border-radius: 30px !important" data-toggle="modal" data-target="#actReplyReview">
+    <i class="fas fa-pencil-alt"></i>
+    <span>
+      Reply
+    </span>
+  </button>
+
+  <!-- modal - reply -->
+  <form action="http://localhost/RV/public/submitReview/submitReply.php" method="post">
+    <div class="modal fade" id="actReplyReview" tabindex="-1" role="dialog" aria-labelledby="actReplyReviewTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" style="max-width: 800px!important;" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="">Tên bạn</label>
+              <input type="text"
+                class="form-control" name="name" aria-describedby="helpId" placeholder=" Muốn xưng tên thật thì xưng hong thì thui">
+            </div>
+            <div class="form-group">
+              <label for="">Comment <span style="color: #ff4a6f;">(Bắt buộc)</span></label>
+              <textarea class="form-control" name="mainReply" rows="4" placeholder="Hãy Comment theo cách của bạn" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="">Bày tỏ thái độ</label>
+              <select class="custom-select form-control" name="react">
+                <option value="0" selected>👍 Like</option>  
+                <option value="1">👎 Dislike</option>  
+                <option value="2">❌ Xóa giúp</option>  
+              </select>
+            </div>
+            <div class="form-group">
+              <div
+                class="g-recaptcha"
+                data-sitekey="6Lfwp-sUAAAAAEK-vGB1KD4__Xsk5dJjYJ40ekCJ"
+              ></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success btn-lg">Đăng Comment</button>
+            <button type="button" class="btn btn-light btn-lg" data-dismiss="modal">Hủy bỏ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

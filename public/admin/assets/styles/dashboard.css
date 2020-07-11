@@ -1,0 +1,19 @@
+.dropdown-item:hover{
+  background-color: rgb(61, 138, 253) !important;
+}
+.fa-brain{
+  color: yellow;
+}
+
+.fa-heart{
+  color: red;
+}
+
+.footer .container-fluid {
+  overflow: hidden;
+  color: rgba(255,255,255,0.6);
+  background-color: rgba(0,0,0,0.2);
+}
+.card-header-primary{
+  background-color: rgb(61, 138, 253) !important;
+}

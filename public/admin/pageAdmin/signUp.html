@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/styles/images/tempsnip.png">
+  <link rel="icon" type="image/png" href="../assets/styles/images/tempsnip.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Sign Up
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/4f433ce5a6.js" crossorigin="anonymous"></script>
+  <!-- CSS Files -->
+  <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <!-- my css -->
+  <link rel="stylesheet" href="../assets/styles/signUp.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="lds-ellipsis loading">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <form action="" style="margin: auto; 
+      width: 70%;" class="registerForm">
+        <div class="header-form text-center">
+          <div class="logo">
+            <a href="#" class="simple-text logo-normal">
+              <img src="../assets/styles/images/tempsnip.png" width="40" height="40" class="d-inline-block align-top"
+                alt="reviewUOFIT">
+            </a>
+          </div>
+          <div class="title-form">
+            <h2>Sign up</h2>
+            <p>Create your Admin Account</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" aria-describedby="emailHelp" name="username">
+          <div class="err errUsername mt-3 mb-3"></div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" name="password">
+          <div class="err errPassword mt-3 mb-3"></div>
+        </div>
+        <div class="form-group">
+          <label for="password">Email</label>
+          <input type="email" class="form-control" id="email" name="email">
+          <div class="err errEmail mt-3 mb-3"></div>
+        </div>
+        <button class="btn btn-success float-right" id="registerButton">Sign Up</button>
+        <div class="createA">
+          <a href="./signIn.html">I already have an account</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- script styles -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="../assets/scripts/signUp.js"></script>
+
+</body>
+
+</html>

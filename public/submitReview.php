@@ -10,15 +10,19 @@
 
     mysqli_select_db($connect,'reviewuni');
     // echo "Khi kết nối thành công sẽ tiếp tục dòng code bên dưới đây.". '<br/>';
-   
+    // $name       = '';
+    // $pos        = '';
+    // $mainReview = '';
+    // $giveStar   = '';
     echo '<pre>';
     print_r($_POST);
     echo '</pre>';
     
-    $name = $_POST['name'];
-    $pos = $_POST['position'];
+    $MaTr       = $_POST['MaTr'];
+    $name       = $_POST['name'];
+    $pos        = $_POST['position'];
     $mainReview = $_POST['mainReview'];
-    $giveStar = $_POST['giveStar'];
+    $giveStar   = $_POST['giveStar'];
     $sql = "INSERT INTO nguoibl(TenNBL, ChucVu) VALUES ('$name', '$pos') ";
     mysqli_query($connect,$sql);
     // kết thúc add dữ liệu
@@ -46,15 +50,15 @@
     $result = mysqli_query($connect,$query);
 
     $row = mysqli_fetch_assoc($result);
-
-    echo $MaNGBL = $row['MaNBL'];
     
-    $sql2 = "INSERT INTO ctblt( MaTr, MaNBL, NdBL, Sao ) VALUES ( 'QSC' , $MaNGBL, '$mainReview', $giveStar) ";
+    echo $MaNGBL = $row['MaNBL'];
+   
+
+    $sql2 = "INSERT INTO ctblt( MaTr, MaNBL, NdBL, Sao ) VALUES ( '$MaTr' , $MaNGBL, '$mainReview', $giveStar) ";
     echo '<br/>'.$sql2;
     mysqli_query($connect,$sql2);
-    
 
-    header ( "location: http://localhost/rv/public/showReview/showReview.php");
+    header ( "location: showReview.php?MaTr=$MaTr");
 
     //Đóng database
     $connect->close();

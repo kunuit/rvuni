@@ -1,3 +1,33 @@
+<?php
+
+    $connect = mysqli_connect('localhost', 'root', '');
+    
+    if(!$connect){
+        die('Lỗi kết nối: '.mysqli_connect_error($connect));
+        exit();
+    }
+
+    mysqli_select_db($connect, 'manage_user');
+    // echo '<pre>';
+    // print_r($_POST);
+    // echo '</pre>';
+    $username = $_POST['intoInfo'];
+    $password = $_POST['password'];
+    $sql = "SELECT * FROM admin a WHERE a.username='$username' AND a.password='$password';";
+    // echo $sql;
+    $result = mysqli_query($connect,$sql);
+    // $row = mysqli_fetch_assoc($result);
+    // echo '<pre>';
+    // print_r($row);  
+    // echo '</pre>';
+    if($result->num_rows > 0){
+        echo '<script> alert("đăng nhập thành công");</script>';
+        header ( "location: dashboard.html");
+    }else{
+        echo '<script> alert("sai ten dang nhap hoac mat khau");</script>';
+    }
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +37,7 @@
   <link rel="icon" type="image/png" href="../assets/styles/images/tempsnip.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Sign Up
+    Sign In
   </title>
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -20,10 +50,36 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
   <!-- my css -->
-  <link rel="stylesheet" href="../assets/styles/signUp.css">
+  <link rel="stylesheet" href="../assets/styles/signIn.css">
 </head>
 
 <body>
+  <!-- fb login -->
+  <!-- <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '215734066241739',
+        cookie: true,
+        xfbml: true,
+        version: 'v6.0'
+      });
+
+      FB.AppEvents.logPageView();
+
+    };
+
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script> -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0&appId=215734066241739&autoLogAppEvents=1"></script>
+
   <div class="container">
     <div class="row">
       <div class="lds-ellipsis loading">
@@ -32,8 +88,8 @@
         <div></div>
         <div></div>
       </div>
-      <form action="http://localhost/rv/public/admin/pageAdmin/signUp.php" method="POST" style="margin: auto; 
-      width: 70%;" class="registerForm">
+      <form action="http://localhost/rv/public/admin/pageAdmin/signIn.PHP" method="POST" style="margin: auto;
+        width: 70%;" class="loginForm">
         <div class="header-form text-center">
           <div class="logo">
             <a href="#" class="simple-text logo-normal">
@@ -42,28 +98,30 @@
             </a>
           </div>
           <div class="title-form">
-            <h2>Sign up</h2>
-            <p>Create your Admin Account</p>
+            <h2>Sign in</h2>
+            <p>Use your Admin Account</p>
           </div>
         </div>
         <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" class="form-control" id="username" aria-describedby="emailHelp" name="username">
-          <div class="err errUsername mt-3 mb-3"></div>
+          <label for="intoInfo">Username or Email</label>
+          <input type="text" class="form-control" id="intoInfo" aria-describedby="emailHelp" name="intoInfo">
+          <div class="error errInfo mt-3 mb-3"></div>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
           <input type="password" class="form-control" id="password" name="password">
-          <div class="err errPassword mt-3 mb-3"></div>
+          <div class="error errPassword mt-3 mb-3"></div>
         </div>
         <div class="form-group">
-          <label for="password">Email</label>
-          <input type="email" class="form-control" id="email" name="email">
-          <div class="err errEmail mt-3 mb-3"></div>
+          <a href="./recovery.html">Forgot password ?</a>
         </div>
-        <button type="submit" class="btn btn-success float-right" id="registerButton">Sign Up</button>
+        <div class="form-group">
+          <div class="fb-login-button" data-width="" onlogin="checkLoginState();" data-size="large"
+            data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+        </div>
+        <button type="submit" class="btn btn-success float-right" id="loginButton">Sign In</button>
         <div class="createA">
-          <a href="./signIn.html">I already have an account</a>
+          <a href="./signUp.html">Create Account</a>
         </div>
       </form>
     </div>
@@ -83,8 +141,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  <script src="../assets/scripts/signUp.js"></script>
-
+  <script src="../assets/scripts/signIn.js"></script>
 </body>
 
 </html>

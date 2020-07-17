@@ -10,6 +10,7 @@
 
     mysqli_select_db($connect,'reviewuni');
     echo "Khi kết nối thành công sẽ tiếp tục dòng code bên dưới đây.". '<br/>';
+
     $name = $_POST['name'];
     $mainReply = $_POST['mainReply'];
     $react = $_POST['react'];
@@ -26,17 +27,19 @@
     $row = mysqli_fetch_assoc($result);
     $MaNGBL = $row['MaNBL'];
     // select ra mã bình luận trường 
-    $query2 = "SELECT MaBLT FROM `ctblt` ORDER BY `MaBLT` DESC LIMIT 1";
+    $query2 = "SELECT MaBLT, MaTr FROM `ctblt` ORDER BY `MaBLT` DESC LIMIT 1";
     $result2 = mysqli_query($connect,$query2);
 
     $row2 = mysqli_fetch_assoc($result2);
     $MaBLT = $row2['MaBLT'];
+    $MaTr = $row2['MaTr'];
     $sql2 = "INSERT INTO ctblbl( MaBLT, MaNBL, NdBL, MaBC ) VALUES ( $MaBLT , $MaNGBL, '$mainReply', $react) ";
     mysqli_query($connect,$sql2);
     echo $sql2;
 
     // echo mysqli_affected_rows($connect);
-    header ( "location: http://localhost/rv/public/showReview/showReview.php");
+    
+    header ( "location: showReview.php?MaTr=$MaTr");
    
     //Đóng database
     $connect->close();

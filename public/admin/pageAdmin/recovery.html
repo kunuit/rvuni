@@ -26,17 +26,19 @@
 
 <body>
   <div class="container">
-    <div class="row" style="margin-top: 10%">
-      <div class="card recovery" style="margin: auto;
-      width: 50%;">
-        <div class="card-body text-center">
-          <h2 class="card-title">Recovery</h2>
-          <p class="card-text">Please enter your username.</p>
-          <input type="text" class="form-control" name="username" id="username">
-          <button type="button" class="btn btn-success m-2" id="recoveryButton">OK</button>
+    <form action="recovery.php" method="post">
+      <div class="row" style="margin-top: 10%">
+        <div class="card recovery" style="margin: auto;
+        width: 50%;">
+          <div class="card-body text-center">
+            <h2 class="card-title">Recovery</h2>
+            <p class="card-text">Please enter your username.</p>
+            <input type="text" class="form-control" name="username" id="username">
+            <button type="button" class="btn btn-success m-2" id="recoveryButton">OK</button>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
     <div class="row">
       <div class="lds-ellipsis loading"><div></div><div></div><div></div><div></div></div>
       <div class="card newPassword" style="margin: auto;

@@ -1,12 +1,13 @@
+
 <!doctype html>
 <html lang="en">
 
 <head>
-  <title>Trang chủ</title>
+  <title>ShowReview</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="1.css">
+  <link rel="stylesheet" href="css/showReview.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/4f433ce5a6.js" crossorigin="anonymous"></script>
   <!-- Bootstrap CSS -->
@@ -16,30 +17,33 @@
 
 <body>
 
-  <div class="tieude">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-4">
-          <small class="logo"></small>
-        </div>
-        <div class="col-sm-4">
-          <div class="search-wrap">
-            <input class="search" type="text" placeholder="Search for University.">
-            <small class="logofind">
-              <i class="fa fa-search" aria-hidden="true"></i>
-            </small>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="sginout">
-            <small class="sgin signup"> Sign up /</small>
-            <small class="sgin signin"> Sign in </small>
-            <small class="logo-sgin"></small>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> <!-- het tieude-->
+  <!-- Start header -->
+ <header class="top-header">
+	<nav class="navbar header-nav navbar-expand-lg">
+	  <div class="container-fluid">
+		<a class="navbar-brand" href="index.html">REVIEW<span>-</span>UNI</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
+		  <span></span>
+		  <span></span>
+		  <span></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
+		  <ul class="navbar-nav">
+			<li><a class="nav-link" href="index.php">Trang chủ</a></li>
+			<li><a class="nav-link" href="all-uni.php">Trường học</a></li>
+			<li><a class="nav-link" href="contact.php">Liên hệ</a></li>
+		  </ul>
+		</div>
+		<div class="search-box">
+		  <input type="text" class="search-txt" placeholder="Tìm kiếm">
+		  <a class="search-btn">
+			<img src="images/search_icon.png" alt="#" />
+		  </a>
+		</div>
+	  </div>
+	</nav>
+  </header>
+<!-- End header -->
   <div class="duoitieude">
     <div class="container">
       <div class="solieu">
@@ -66,20 +70,21 @@
       <div class="intro">
         <div class="row">
           <div class="col-sm-2">
-            <img class="logoifo" src="logouit.png" alt="">
+            <img class="logoifo" src="images/img7.png" alt="">
           </div>
           <div class="col-sm-6">
-            <h3> Information Technology University <span class="rate-new"> </span></h3>
+            <h3> UNIVERSITY OF TECHNOLOGY  </span></h3>
             <h4>
               <span class="fa fa-building"></span>
-              <span>Khu phố 6 phường linh trung quận đức.</span>
+              <span class="diachi">268 Lý Thường Kiệt, Phường 14, Quận 10, Hồ Chí Minh</span>
+              <p><span class="rate-new ratetong"> <span class="tongvote">(<?php echo rand(50,200)?>)</span> </p>
             </h4>
           </div>
           <div class="col-sm-4">
             <div class="nutdanhgia">
               <button type="button" class="btn btn-success btn-lg act-review" style="border-radius: 30px !important" data-toggle="modal" data-target="#actReview">
                 <i class="fas fa-pencil-alt"></i>
-                <span>
+                <span class="vietreview">
                   viết review
                 </span>
               </button>
@@ -99,9 +104,10 @@
         exit();
       }
 
+      $MaTr = $_GET['MaTr'];
       mysqli_select_db($connect, 'reviewuni');
       $query = "SELECT * FROM ctblt ct, nguoibl bl
-                                  WHERE bl.MaNBL = ct.MaNBL ";
+                                  WHERE bl.MaNBL = ct.MaNBL AND ct.MaTr = '$MaTr' ";
 
       $result = mysqli_query($connect, $query);
       while ($row = mysqli_fetch_assoc($result)) {
@@ -137,7 +143,6 @@
         // echo '<pre>';
         // print_r($row);
         // echo '</pre>';
-
       }
       ?>
 
@@ -148,12 +153,12 @@
 
     <!-- modal review -->
     <!-- Modal -->
-    <form action="http://localhost/RV/public/submitReview/submitReview.php" method="post">
+    <form action="submitReview.php" method="post">
       <div class="modal fade" id="actReview" tabindex="-1" role="dialog" aria-labelledby="actReviewTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" style="max-width: 800px!important;" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="actReviewTitle">Viết Review trường đại học <span> Công Nghệ Thông Tin</span></h5>
+            <h5 class="modal-title" id="actReviewTitle">Viết Review trường đại học <input class='tentruong' type="text" name="MaTr" value="<?php echo $_GET['MaTr']?>" > <?php echo $truong =  $_GET['MaTr'] == 'QSB' ? 'BK' : '' ;?></h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -195,7 +200,7 @@
     </form>
 
      <!-- modal - reply -->
-  <form action="http://localhost/RV/public/submitReview/submitReply.php" method="post">
+  <form action="submitReply.php" method="post">
     <div class="modal fade" id="actReplyReview" tabindex="-1" role="dialog" aria-labelledby="actReplyReviewTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable" style="max-width: 800px!important;" role="document">
         <div class="modal-content">
@@ -237,7 +242,7 @@
   <!-- Footer -->
   <footer class="page-footer font-small unique-color-dark">
 
-    <div style="background-color: #4a90e2;">
+    <div style="background-color: #002147;">
       <div class="container">
 
         <!-- Grid row-->
@@ -245,8 +250,8 @@
 
           <!-- Grid column -->
           <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-            <img src="./stylecss/tempsnip.png" width="30" height="30" class="d-inline-block align-top" alt="reviewUOFIT">
-            <a href="#">RVU-OFIT</a>
+            <!-- <img src="./stylecss/tempsnip.png" width="30" height="30" class="d-inline-block align-top" alt="reviewUOFIT"> -->
+            <a href="#">REVIEW-UNI</a>
           </div>
           <!-- Grid column -->
 
@@ -381,7 +386,7 @@
   <!-- Footer -->
 
   <!-- Optional JavaScript -->
-  <script src="1.js"></script>
+
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
